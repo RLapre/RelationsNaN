@@ -34,14 +34,17 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Image)
+                <img height="200" src="@Html.DisplayFor(modelItem => item.Image)" alt="Image qui fonctionne pas :(" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ReleaseYear)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genre.Id)
-            </td>
+                <td>
+                    @if (item.Genre != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.Genre.Name)
+                    }
+                </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
